@@ -1,0 +1,32 @@
+package professionnelle.eventhub.Service;
+
+import org.springframework.stereotype.Service;
+import professionnelle.eventhub.Entite.Event;
+import professionnelle.eventhub.Repository.EventRepository;
+import java.util.List;
+import java.util.Optional;
+@Service
+public class EventService {
+    private EventRepository eventRepository;
+    public EventService(EventRepository eventRepository){
+        this.eventRepository=eventRepository;
+    }
+    public List<Event> getAllEvents(){
+        return eventRepository.findAll();
+    }
+    public Optional<Event> getEventById(Long id){
+        return eventRepository.findById(id);
+    }
+    public Event createEvent(Event event){
+        return eventRepository.save(event);
+    }
+    public Event updateEvent(Event event){
+        return eventRepository.save(event);
+    }
+    public void deleteEvent(Long id){
+        eventRepository.deleteById(id);
+    }
+    public List<Event> getEventByCreator(String userId){
+        return eventRepository.findByCreatedBy(userId);
+    }
+}
