@@ -35,7 +35,7 @@ public class SecurityConfig {
         String jwkSetUri = "http://localhost:8080/realms/eventhub-realm/protocol/openid-connect/certs";
         return NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
     }
-    // ✅ CORS autorisation Angular (port 4200)
+    // CORS autorisation Angular (port 4200)
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
